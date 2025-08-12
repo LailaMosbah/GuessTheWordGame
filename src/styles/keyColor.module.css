@@ -1,0 +1,19 @@
+.container {
+    display: flex;
+    /* justify-content: space-evenly; */
+    padding: 10px;
+    gap: 10px;
+    line-height: 30px;
+    /* background-color: rgba(255, 255, 255, 0.247); */
+    margin: 10px
+}
+
+.keyColor {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.keyText {
+    font-weight: bold;
+}
