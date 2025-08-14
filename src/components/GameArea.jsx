@@ -8,7 +8,6 @@ export default function GameArea() {
     <>
       <div>
         <Inputs />
-        <Controls />
         <Message />
       </div>
     </>

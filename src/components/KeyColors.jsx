@@ -6,7 +6,7 @@ export default function KeyColors() {
   return (
     <>
       <div className={styles.container}>
-        <h2 style={{ textAlign: "center" }}>Key Colors</h2>
+        <h2 style={{ textAlign: "center", color: "#5934e0" }}>Key Colors</h2>
         <KeyColor
           keyColor="green"
           keyText="Letter is Correct and In Correct Place"

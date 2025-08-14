@@ -1,0 +1,47 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 25px;
+    gap: 15px;
+    /* spacing between buttons */
+}
+
+/* Base button style */
+button {
+    flex: 1;
+    padding: 12px 18px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    border-radius: 12px;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, .15);
+    transition: all 0.25s ease-in-out;
+}
+
+/* Hover and active animations */
+button:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, .25);
+}
+
+button:active {
+    transform: scale(0.98);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .15);
+}
+
+/* Check button (primary) */
+.checkBtn {
+    flex: 3;
+    /* bigger button */
+    background: linear-gradient(135deg, #6a4de0, #4a2fb8);
+}
+
+/* Hint button (secondary) */
+.checkhint {
+    flex: 1;
+    /* smaller button */
+    background: linear-gradient(135deg, #2d8a35, #1a5d20);
+}
