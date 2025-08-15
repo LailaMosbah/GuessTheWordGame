@@ -1,5 +1,5 @@
 import React from "react";
 
-export default function Message() {
-  return <div></div>;
+export default function Message({ message }) {
+  return message ? <h2>{message}</h2> : null;
 }

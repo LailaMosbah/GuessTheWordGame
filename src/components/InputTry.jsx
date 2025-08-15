@@ -1,14 +1,17 @@
 import React, { useRef } from "react";
 import styles from "../styles/inputs.module.css";
 
-export default function InputTry({ isActive, wordToGuess }) {
+export default function InputTry({
+  isActive,
+  row,
+  rowIndex,
+  handleInputChange,
+}) {
   const inputRefs = useRef([]);
 
-  let numberOfLetters = 6;
-
-  // Handle Arrows Buttons
+  // Handle Arrows
   function handleKeyDown(e, index) {
-    if (e.key === "ArrowRight" && index < numberOfLetters - 1)
+    if (e.key === "ArrowRight" && index < row.length - 1)
       inputRefs.current[index + 1].focus();
     if (e.key === "ArrowLeft" && index > 0)
       inputRefs.current[index - 1].focus();
@@ -16,16 +19,27 @@ export default function InputTry({ isActive, wordToGuess }) {
 
   return (
     <div className={styles.word}>
-      {Array.from({ length: numberOfLetters }).map((_, indexInput) => (
+      {row.map((letter, indexInput) => (
         <div key={indexInput}>
           <input
-            key={indexInput}
             ref={(el) => (inputRefs.current[indexInput] = el)}
+            value={letter.value}
             type="text"
             maxLength={1}
-            className={styles.input}
+            className={
+              letter.status === "right"
+                ? styles.inputRight
+                : letter.status === "place"
+                ? styles.inputPlace
+                : letter.status === "wrong"
+                ? styles.inputWrong
+                : styles.input
+            }
             disabled={!isActive}
             onKeyDown={(e) => handleKeyDown(e, indexInput)}
+            onChange={(e) =>
+              handleInputChange(rowIndex, indexInput, e.target.value)
+            }
           />
         </div>
       ))}

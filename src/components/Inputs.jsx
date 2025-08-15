@@ -1,26 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
 import InputTry from "./InputTry";
 import styles from "../styles/inputs.module.css";
-import Controls from "./Controls";
-import words from "../data/words";
 
-export default function Inputs() {
-  let numberOfTries = 6;
-  const [currentTry, setCurrentTry] = useState(2);
-  let wordToGuess = words[Math.floor(Math.random() * words.length)];
-
+export default function Inputs({ tries, currentTry, handleInputChange }) {
   return (
     <>
-      {Array.from({ length: numberOfTries }).map((_, indexTry) => (
+      {tries.map((row, indexTry) => (
         <div key={indexTry} className={styles.containerInput}>
-          <p className={styles.indexWord}> Try {indexTry + 1} :</p>
+          <p className={styles.indexWord}>Try {indexTry + 1} :</p>
           <InputTry
-            isActive={indexTry + 1 === currentTry}
-            wordToGuess={wordToGuess}
+            isActive={indexTry === currentTry}
+            row={row}
+            rowIndex={indexTry}
+            handleInputChange={handleInputChange}
           />
         </div>
       ))}
-      <Controls />
     </>
   );
 }
