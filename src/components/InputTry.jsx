@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import styles from "../styles/inputs.module.css";
 
 export default function InputTry({
@@ -6,15 +6,28 @@ export default function InputTry({
   row,
   rowIndex,
   handleInputChange,
+  currentCol,
 }) {
   const inputRefs = useRef([]);
 
-  // Handle Arrows
+  // Auto-focus the current column
+  useEffect(() => {
+    if (isActive && currentCol < row.length && inputRefs.current[currentCol]) {
+      inputRefs.current[currentCol].focus();
+    }
+  }, [currentCol, isActive]);
+
+  // Handle Arrows and input
   function handleKeyDown(e, index) {
-    if (e.key === "ArrowRight" && index < row.length - 1)
+    if (e.key === "ArrowRight" && index < row.length - 1) {
       inputRefs.current[index + 1].focus();
-    if (e.key === "ArrowLeft" && index > 0)
+    }
+    if (e.key === "ArrowLeft" && index > 0) {
       inputRefs.current[index - 1].focus();
+    }
+    if (e.key === "Backspace" && !row[index].value && index > 0) {
+      inputRefs.current[index - 1].focus();
+    }
   }
 
   return (
@@ -37,9 +50,13 @@ export default function InputTry({
             }
             disabled={!isActive}
             onKeyDown={(e) => handleKeyDown(e, indexInput)}
-            onChange={(e) =>
-              handleInputChange(rowIndex, indexInput, e.target.value)
-            }
+            onChange={(e) => {
+              handleInputChange(rowIndex, indexInput, e.target.value);
+              // Auto-focus next input
+              if (indexInput < row.length - 1 && e.target.value) {
+                inputRefs.current[indexInput + 1].focus();
+              }
+            }}
           />
         </div>
       ))}

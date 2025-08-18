@@ -1,0 +1,42 @@
+.keyboard {
+    margin: 20px auto;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.keyboardRow {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5px;
+}
+
+.key {
+    width: 40px;
+    height: 40px;
+    margin: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f2f2f2;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.keyRight {
+    background-color: #33ff0023;
+    border: 2px solid #33ff00;
+}
+
+.keyPlace {
+    background-color: rgba(255, 251, 0, 0.103);
+    border: 2px solid #fffb00;
+}
+
+.keyWrong {
+    background-color: rgba(255, 0, 0, 0.103);
+    border: 2px solid #ff0000;
+}
