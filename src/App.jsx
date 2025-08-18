@@ -1,12 +1,14 @@
 import "./App.css";
-import GuessWord from "./components/GuessWord";
+import GameArea from "./components/GameArea";
 import Header from "./components/Header";
 
 function App() {
   return (
     <>
       <Header />
-      <GuessWord />
+      <div className="container">
+        <GameArea />
+      </div>
     </>
   );
 }

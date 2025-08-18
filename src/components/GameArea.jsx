@@ -4,6 +4,8 @@ import Controls from "./Controls";
 import Message from "./Message";
 import Keyboard from "./Keyboard";
 import words from "../data/words";
+import KeyColors from "./KeyColors";
+import styles from "../styles/guessWord.module.css";
 
 export default function GameArea() {
   const wordLength = 6;
@@ -123,21 +125,26 @@ export default function GameArea() {
   }
 
   return (
-    <div>
-      <Inputs
-        tries={tries}
-        currentTry={currentTry}
-        handleInputChange={handleInputChange}
-        currentRow={currentRow}
-        currentCol={currentCol}
-      />
-      <Controls
-        checkWord={checkWord}
-        onHint={handleHint}
-        hintsRemaining={usedLetters.hintsRemaining}
-      />
-      <Message message={message} />
-      <Keyboard usedLetters={usedLetters} />
+    <div className={styles.container}>
+      <div>
+        <Inputs
+          tries={tries}
+          currentTry={currentTry}
+          handleInputChange={handleInputChange}
+          currentRow={currentRow}
+          currentCol={currentCol}
+        />
+        <Controls
+          checkWord={checkWord}
+          onHint={handleHint}
+          hintsRemaining={usedLetters.hintsRemaining}
+        />
+        <Message message={message} />
+      </div>
+      <div>
+        <KeyColors />
+        <Keyboard usedLetters={usedLetters} />
+      </div>
     </div>
   );
 }
