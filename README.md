@@ -1,12 +1,100 @@
-# React + Vite
+# 🎮 Guess the Word
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A fun and interactive word guessing game built with **React**.  
+Players try to guess the hidden word by filling letters into a grid. The game provides feedback on each attempt and hints to guide the player toward the correct word.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
+- 🎯 Interactive grid for entering guesses.
+- 💡 Hint button to reveal helpful clues.
+- ✅ Validation for correct/incorrect letters.
+- 🔄 Dynamic state updates without page reload.
+- 🎖 Track score and attempts.
+- 📱 clean UI.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Tech Stack
+- **React** (functional components, hooks)
+- **CSS** for styling
+- **JavaScript (ES6+)** for game logic
+
+---
+
+## 📂 Project Structure
+```
+
+src/
+┣ components/
+┃ ┣ Header.jsx
+┃ ┣ GameArea.jsx
+┃ ┣ Controls.jsx
+┃ ┣ Inpust.jsx
+┃ ┣ InputTry.jsx
+┃ ┣ Keyboard.jsx
+┃ ┣ KeyColor.jsx
+┃ ┣ KeyColors.jsx
+┃ ┗ Message.jsx
+┣ data/
+┃  ┗ words.jsx
+┣ styles/
+┃  ┣ filse.module.css
+┃  ┗ filse.module.css
+┣ App.jsx
+┣ App.css
+┗ index.js
+
+````
+
+---
+
+## ▶️ Getting Started
+
+### 1. Clone the repository
+```bash
+git clone https://github.com/your-username/guess-the-word.git
+cd guess-the-word
+````
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Run the app
+
+```bash
+npm start
+```
+
+The app will run on `http://localhost:3000`.
+
+---
+
+## 🎨 Demo
+
+https://guessthewordbyreact.netlify.app/
+
+---
+
+## 📌 Future Improvements
+
+* Add difficulty levels (Easy, Medium, Hard).
+* Include timer for challenge mode.
+* Improve UI/UX with animations.
+
+---
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+Feel free to open a PR or submit an issue.
+
+---
+
+## 📜 License
+
+This project is licensed under the MIT License.
+
